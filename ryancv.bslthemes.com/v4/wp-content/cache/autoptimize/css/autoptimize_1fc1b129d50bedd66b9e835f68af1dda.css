@@ -3101,7 +3101,7 @@ dd {
     left: 0;
     top: 15px;
     float: left;
-    width: 72px;
+    width: auto;
     z-index: 100;
     text-align: center;
     opacity: 1;

@@ -743,7 +743,7 @@ var wpcf7 = {
         }, false);
     }
 })();
-;window.Modernizr = function (a, b, c) {
+window.Modernizr = function (a, b, c) {
     function z(a) {
         j.cssText = a
     }
@@ -2428,7 +2428,7 @@ var wpcf7 = {
             onkeyup: function (element, event) {
                 var excludedKeys = [16, 17, 18, 20, 35, 36, 37, 38, 39, 40, 45, 144, 225];
                 if (event.which === 9 && this.elementValue(element) === "" || $.inArray(event.keyCode, excludedKeys) !== -1) {
-                    return;
+
                 } else if (element.name in this.submitted || element.name in this.invalid) {
                     this.element(element);
                 }
@@ -3382,7 +3382,7 @@ var wpcf7 = {
         args = args || [];
         var onceListeners = this._onceEvents && this._onceEvents[eventName];
         for (var i = 0; i < listeners.length; i++) {
-            var listener = listeners[i]
+            var listener = listeners[i];
             var isOnce = onceListeners && onceListeners[listener];
             if (isOnce) {
                 this.off(eventName, listener);
@@ -3802,7 +3802,7 @@ var wpcf7 = {
         args = args || [];
         var onceListeners = this._onceEvents && this._onceEvents[eventName];
         for (var i = 0; i < listeners.length; i++) {
-            var listener = listeners[i]
+            var listener = listeners[i];
             var isOnce = onceListeners && onceListeners[listener];
             if (isOnce) {
                 this.off(eventName, listener);
@@ -5676,7 +5676,7 @@ var wpcf7 = {
         this.isInput = this.el.is('input');
         this.attr = this.options.attr;
         this.showCursor = this.isInput ? false : this.options.showCursor;
-        this.elContent = this.attr ? this.el.attr(this.attr) : this.el.text()
+        this.elContent = this.attr ? this.el.attr(this.attr) : this.el.text();
         this.contentType = this.options.contentType;
         this.typeSpeed = this.options.typeSpeed;
         this.startDelay = this.options.startDelay;
@@ -5738,7 +5738,7 @@ var wpcf7 = {
                     curString = curString.substring(0, curStrPos) + curString.substring(curStrPos + skip);
                 }
                 if (self.contentType === 'html') {
-                    var curChar = curString.substr(curStrPos).charAt(0)
+                    var curChar = curString.substr(curStrPos).charAt(0);
                     if (curChar === '<' || curChar === '&') {
                         var tag = '';
                         var endTag = '';
@@ -5843,7 +5843,7 @@ var wpcf7 = {
             var self = this;
             clearInterval(self.timeout);
             var id = this.el.attr('id');
-            this.el.after('<span id="' + id + '"/>')
+            this.el.after('<span id="' + id + '"/>');
             this.el.remove();
             if (typeof this.cursor !== 'undefined') {
                 this.cursor.remove();
@@ -6262,7 +6262,7 @@ var wpcf7 = {
             };
         }
         if (this.is('animating')) {
-            $.support.transform ? this.animate(stage.x) : this.$stage.stop()
+            $.support.transform ? this.animate(stage.x) : this.$stage.stop();
             this.invalidate('position');
         }
         this.$element.toggleClass(this.options.grabClass, event.type === 'mousedown');
@@ -7276,7 +7276,7 @@ var wpcf7 = {
             return;
         }
         this._core.next(speed || this._core.settings.autoplaySpeed);
-    }
+    };
     Autoplay.prototype.read = function () {
         return new Date().getTime() - this._time;
     };
@@ -7622,15 +7622,15 @@ var wpcf7 = {
     }
 
     if (tests.csstransitions()) {
-        $.support.transition = new String(prefixed('transition'))
+        $.support.transition = String(prefixed('transition'));
         $.support.transition.end = events.transition.end[$.support.transition];
     }
     if (tests.cssanimations()) {
-        $.support.animation = new String(prefixed('animation'))
+        $.support.animation = String(prefixed('animation'));
         $.support.animation.end = events.animation.end[$.support.animation];
     }
     if (tests.csstransforms()) {
-        $.support.transform = new String(prefixed('transform'));
+        $.support.transform = String(prefixed('transform'));
         $.support.transform3d = tests.csstransforms3d();
     }
 })(window.Zepto || window.jQuery, window, document);
@@ -7672,7 +7672,7 @@ var wpcf7 = {
                 settings[key] = encodeString(settings[key]);
             }
         }
-        ;
+
         if (settings.url !== undefined) {
             $(this).find('.share-btn-facebook').attr('href', 'https://www.facebook.com/sharer/sharer.php?u=' + settings.url);
             $(this).find('.share-btn-tumblr').attr('href', 'http://tumblr.com/share/link?url=' + settings.url + (settings.title !== undefined ? '&name=' + settings.title : '') + (settings.description !== undefined ? '&description=' + settings.description : ''));
@@ -7775,7 +7775,7 @@ var wpcf7 = {
             if (val.startTime && val.endTime && val.allDay === undefined) val.allDay = false;
             if (/^\d{2}-DD-\d{4}/.test(key) || /^\d{2}-DD-YYYY/.test(key)) {
                 var det = /^(\d{2})-DD-(\d{4})/.exec(key) || /^(\d{2})-DD-YYYY/.exec(key), chkDate;
-                if (det.length == 3) chkDate = new Date(det[2], det[1], 0); else if (det.length == 2) chkDate = new Date(this.year, det[1], 0)
+                if (det.length == 3) chkDate = new Date(det[2], det[1], 0); else if (det.length == 2) chkDate = new Date(this.year, det[1], 0);
                 if (!val.startDate) val.startDate = 1;
                 if (!val.endDate && chkDate.getDate() != 1) val.endDate = chkDate.getDate();
                 if (!val.endDate && chkDate.getDate() == 1 && det.length == 3) val.endDate = chkDate.getDate();
@@ -7895,7 +7895,7 @@ var wpcf7 = {
                 if (wrap) return '<div class="fc-calendar-event">' + this._timeHtml(day, date) + '</div>'; else return this._timeHtml(day, date);
             } else return '<div class="fc-calendar-event">' + day + '</div>';
         }, _convertDayArray: function (day, date) {
-            var wrap_days = []
+            var wrap_days = [];
             for (var i = 0; i < day.length; i++) {
                 wrap_days[i] = this._wrapDay(day[i], date, false);
             }
